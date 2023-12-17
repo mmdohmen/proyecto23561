@@ -1,0 +1,32 @@
+.card-img-overlay{
+    text-align: right;
+    padding: 10%;
+}
+
+.card-group{
+    width: 70%;
+    margin: auto;
+}
+
+#botonOradores{
+    width: auto;
+    font-size: 12px;
+    padding: 0%;
+}
+
+.card{
+    padding: 5px;
+}
+
+#apareadas{
+    display:inline-block;
+    width: 50%;
+}
+
+#botonEnviar{
+    background-color: #7FBF3F;
+}
+
+footer{
+    color:white
+}

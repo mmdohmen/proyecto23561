@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>c23561pfWEB</display-name>
+  <welcome-file-list>
+    <welcome-file>FrontController</welcome-file>
+    <welcome-file></welcome-file>
+    <welcome-file></welcome-file>
+    <welcome-file></welcome-file>
+    <welcome-file></welcome-file>
+    <welcome-file></welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>FrontController</display-name>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>misClases.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>/FrontController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FrontControler</display-name>
+    <servlet-name>FrontControler</servlet-name>
+    <servlet-class>misClases.FrontControler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrontControler</servlet-name>
+    <url-pattern>/FrontControler</url-pattern>
+  </servlet-mapping>
+</web-app>
