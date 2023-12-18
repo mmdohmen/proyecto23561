@@ -6,6 +6,9 @@
 <%@page import="misClases.Ticket" %> 
 <%@page import="java.util.List" %> 
 
+<%@page import="misClases.OradorDAO" %>
+<%@page import="misClases.Orador" %>
+
 
     
 <!DOCTYPE html>
@@ -47,7 +50,7 @@
         
     <br> 
 	<h1 class="text-primary text-center">TICKETS vendidos</h1>
-	<br>
+	
 	<div class="container">
 		<table class="table table-hover table-sm">
 			<thead>
@@ -66,7 +69,7 @@
 			List<Ticket> listaTickets = null;
 			TicketDAO ticket = new TicketDAO();
 			listaTickets = ticket.listarTickets();
-			System.out.println(listaTickets);
+			//System.out.println(listaTickets);
 			
 			float totalVendido = 0;
 			String rutaEliminar;
@@ -111,7 +114,50 @@
 			
 			</tbody>
 		</table>
+	
+	
+	
+	<br>
+	<h1 class="text-success text-center">ORADORES</h1>
+	
+	<table class="table table-hover table-sm">
+			<thead>
+				<th>id</th>
+				<th>nombre</th>
+				<th>apellido</th>
+				<th>tema</th>
+				<th class="text-center">eliminar</th>
+			</thead>
+			
+			<tbody>
+			<% 
+			List<Orador> listaOradores = null;
+			OradorDAO orador = new OradorDAO();
+			listaOradores = orador.listarOradores();
+			String rutaEliminarOrador;
+			
+			for (int i=0; i<listaOradores.size() ; i++) {
+				rutaEliminarOrador = "FrontController?accion=eliminarOrador&id=" + listaOradores.get(i).getId();
+			%>
+			
+				<tr>
+					<td> <%= listaOradores.get(i).getId() %> </td>
+					<td> <%= listaOradores.get(i).getNombre() %> </td>
+					<td> <%= listaOradores.get(i).getApellido() %> </td>
+					<td> <%= listaOradores.get(i).getTema() %> </td>
+					<td class="text-center"> <a href=<%= rutaEliminarOrador %>> 
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill text-danger text-center" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
+                    </svg> </a> </td>
+                    <td></td>
+				</tr>
+			
+			<% } %>
+			
+			
+	</table>
 	</div>
+	
 
 </div>
 

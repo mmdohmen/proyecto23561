@@ -22,8 +22,11 @@ public class FrontController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String accion = null;
 		TicketDAO ticketDAO = null;
+		OradorDAO oradorDAO = null;
+		
 		try {
-			ticketDAO = new TicketDAO();		
+			ticketDAO = new TicketDAO();
+			oradorDAO = new OradorDAO();
 		} catch (ClassNotFoundException e) {
 			System.out.println(e);
 		}
@@ -62,6 +65,21 @@ public class FrontController extends HttpServlet {
 		} else if (accion.equals("eliminar")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			ticketDAO.eliminar(id);
+			dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
+			
+		} else if (accion.equals("orador")) {
+			String nombre = request.getParameter("nombre");
+			String apellido = request.getParameter("apellido");
+			String mail = request.getParameter("tema");
+			
+			Orador orador = new Orador(0, nombre, apellido, mail);
+			oradorDAO.insertarOrador(orador);
+			
+			dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
+		
+		} else if (accion.equals("eliminarOrador")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			oradorDAO.eliminarOrador(id);
 			dispatcher = request.getRequestDispatcher("vistas/backoffice.jsp");
 			
 		}

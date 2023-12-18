@@ -73,7 +73,7 @@
                             <!-- <button type="button" class="btn btn-outline-light">Quiero ser orador</button> -->
                             <a href="#conviertete" class="btn btn-outline-light">Quiero ser orador</a>
                             <!-- <button type="button" class="btn btn-secondary btn-success">Comprar tickets</button> -->
-                            <a href="tickets.html" class="btn btn-secondary btn-success">Comprar tickets</a>
+                            <a href="FrontController?accion=comprarticket" class="btn btn-secondary btn-success">Comprar tickets</a>
                         </div>
                     </div>
                 </div>
@@ -205,14 +205,14 @@
         </div>
 
         <!-- formulario --------------------------------------------------------------------------------- -->
-        <form action="">
+        <form action="FrontController?accion=orador" method="post">
             <div class="row justify-content-md-center">
                 <div class="col"></div>
                 <div class="col">
-                    <input class="form-control" type="text" placeholder="Nombre" aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Nombre" name="nombre" required aria-label="default input example">
                 </div>
                 <div class="col">
-                    <input class="form-control" type="text" placeholder="Apellido" aria-label="default input example">
+                    <input class="form-control" type="text" placeholder="Apellido" name="apellido" required aria-label="default input example">
                 </div>
                 <div class="col"></div>
             </div>
@@ -221,7 +221,7 @@
                 <div class="col"></div>
                 <div class="col-6">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                        placeholder="Sobre que quieres hablar?"></textarea>
+                        placeholder="Sobre que quieres hablar?" name="tema" required></textarea>
                 </div>
                 <div class="col"></div>
             </div>
@@ -233,7 +233,7 @@
                 <div class="col"></div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-success" type="button" id="botonEnviar">Enviar</button>
+                <button class="btn btn-success" type="submit" id="botonEnviar">Enviar</button>
             </div>
         </form>
         <br>

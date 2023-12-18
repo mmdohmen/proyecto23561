@@ -6,6 +6,9 @@ import java.util.List;
 public class Conexion {
 	
 	public Connection getConnection() throws ClassNotFoundException {
+		// excepción que se lanza cuando una aplicación intenta cargar una clase a través de su nombre, 
+		// pero la clase no puede ser encontrada por el cargador de clases, debido a:
+		// nombre de clase incorrecto, falta de dependencias, problemas de ubicacion del archivo de clase
 
         // el objeto Connection representa una conexion entre java y una bbdd
         Connection conexion = null;
